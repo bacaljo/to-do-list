@@ -11,3 +11,17 @@
   padding-bottom: 24px;
   padding-top: 48px;
 }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.todo-list-item {
+  animation-name: fade-in;
+  animation-duration: 1s;
+}

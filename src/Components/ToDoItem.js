@@ -32,7 +32,7 @@ class ToDoItem extends Component {
         const toggleTodoTooltip = "Mark todo as " + (this.props.todo.done ? "unfinished" : "finished")
 
         return (
-            <List.Item>
+            <List.Item className={'todo-list-item'}>
                 <Tooltip placement="leftTop" title={toggleTodoTooltip}>
                     <Checkbox onClick={this.onToggleTodo} checked={this.props.todo.done}>
                         <span>{this.props.todo.text}</span>
