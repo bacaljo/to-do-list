@@ -11,8 +11,10 @@ class ToDoItem extends Component {
     }
 
     onRemoveItem = () => {
-        deleteTodo(this.props.todo.id).then(response => {
-            this.props.deleteToDo(response.data.id);
+        const todoId = this.props.todo.id
+
+        deleteTodo(todoId).then(response => {
+            this.props.deleteToDo(todoId);
         })
     }
 
@@ -29,7 +31,7 @@ class ToDoItem extends Component {
                 <div>
                     <Tooltip placement="rightTop" title="Delete todo">
                         <Popconfirm
-                            icon={<DeleteOutlined />} 
+                            icon={<DeleteOutlined />}
                             title="Are you sure delete this todo?"
                             onConfirm={this.onRemoveItem}
                             okText="Yes"
