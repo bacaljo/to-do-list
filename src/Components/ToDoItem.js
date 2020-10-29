@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { deleteTodo, toggleTodo } from '../apis/todos';
-import { Button, Checkbox, List, Tooltip } from 'antd';
+import { Button, Checkbox, List, notification, Tooltip } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 
 class ToDoItem extends Component {
     onToggleTodo = () => {
-        toggleTodo(this.props.todo).then(response => {
+        const todo = this.props.todo
+
+        toggleTodo(todo).then(response => {
             this.props.toggleTodo(response.data.id);
+        }).catch(error => {
+            this.props.deleteToDo(todo.id);
+
+            notification['warning']({
+                message: 'Toggling Failed',
+                description: 'Todo has already been deleted.',
+            });
         })
     }
 
