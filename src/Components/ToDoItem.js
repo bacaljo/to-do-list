@@ -13,7 +13,8 @@ class ToDoItem extends Component {
     onRemoveItem = () => {
         const todoId = this.props.todo.id
 
-        deleteTodo(todoId).then(response => {
+        deleteTodo(todoId).catch(error => {
+        }).finally(() => {
             this.props.deleteToDo(todoId);
         })
     }
