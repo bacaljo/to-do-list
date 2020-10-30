@@ -29,7 +29,7 @@ class ToDoItem extends Component {
     }
 
     render() {
-        const toggleTodoTooltip = "Mark todo as " + (this.props.todo.done ? "unfinished" : "finished")
+        const toggleTodoTooltip = "Mark as " + (this.props.todo.done ? "unfinished" : "finished")
 
         return (
             <List.Item className={'todo-list-item'}>
@@ -39,7 +39,7 @@ class ToDoItem extends Component {
                     </Checkbox>
                 </Tooltip>
                 <div>
-                    <Tooltip placement="rightTop" title="Delete todo">
+                    <Tooltip placement="rightTop" title="Delete">
                         <Button icon={<DeleteOutlined />} onClick={this.onRemoveItem} />
                     </Tooltip>
                 </div>
