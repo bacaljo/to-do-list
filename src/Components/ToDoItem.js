@@ -9,7 +9,7 @@ class ToDoItem extends Component {
 
         toggleTodo(todo).then(response => {
             this.props.toggleTodo(response.data.id);
-        }).catch(error => {
+        }).catch(() => {
             this.props.deleteToDo(todo.id);
 
             notification['warning']({
@@ -23,6 +23,7 @@ class ToDoItem extends Component {
         const todoId = this.props.todo.id
 
         deleteTodo(todoId).catch(error => {
+            console.log(error)
         }).finally(() => {
             this.props.deleteToDo(todoId);
         })
